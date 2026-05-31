@@ -1,4 +1,5 @@
-@import "tailwindcss";
+/* @import "tailwindcss"; */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +8,13 @@
 
 body {
   background-color: var(--bg-color);
-  color: var(--text-color);
+  color: var(--white);
   font-family: var(--font-family);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .btn {
@@ -20,12 +26,11 @@ body {
 .card {
   border-radius: 12px;
   padding: 16px;
-  background: white;
+  background: var(--white);
 }
 
-
 .main-header {
-  @apply h-16 bg-blue-600 text-white flex items-center justify-between px-5;
+  @apply h-16 bg-primary-600 text-white flex items-center justify-between px-5 rounded-t-md;
 }
 
 .layout-container {
@@ -39,10 +44,9 @@ body {
 
 .sidebar {
   width: 250px;
-  background: #263238;
+  background: var(--bg-sidebar);
   color: white;
-  height: calc(100vh - 60px);
-
+  min-height: calc(100vh - 60px);
   padding: 20px;
 }
 
@@ -61,9 +65,25 @@ body {
 }
 
 .dashboard-card {
-  @apply bg-white rounded-xl shadow-md p-5 border border-gray-200;
+  @apply bg-card rounded-xl shadow-md p-5 border border-gray-200 shadow-md;
 }
 
 .page-title {
-  @apply text-3xl font-bold mb-5;
+  @apply text-h2 text-text-primary font-inter font-bold mb-5;
+}
+
+.section {
+  @apply text-left
+}
+
+.sub-section {
+  @apply border-2 border-primary-400 p-3 rounded-md;
+}
+
+.section-heading {
+  @apply text-h4 text-text-primary font-medium;
+}
+
+.section-body {
+  @apply text-b1 text-text-primary font-normal;
 }
