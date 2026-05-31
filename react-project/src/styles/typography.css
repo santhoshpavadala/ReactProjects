@@ -1,4 +1,4 @@
-h1,
+/* h1,
 h2 {
   font-family: var(--heading);
   font-weight: 500;
@@ -22,7 +22,7 @@ h2 {
   @media (max-width: 1024px) {
     font-size: 20px;
   }
-}
+} */
 p {
   margin: 0;
 }
