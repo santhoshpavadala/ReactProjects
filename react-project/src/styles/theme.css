@@ -154,19 +154,19 @@
   --text-h6--line-height: 1.5;
 
   /* Body */
-  --text-b1: 1.125rem;
+  --text-b1: 1rem;
   --text-b1--line-height: 1.5;
 
-  --text-b2: 1rem;
+  --text-b2: 0.875rem;
   --text-b2--line-height: 1.5;
 
-  --text-b3: 0.875rem;
+  --text-b3: 0.75rem;
   --text-b3--line-height: 1.5;
 
-  --text-b4: 0.75rem;
+  --text-b4: 0.625rem;
   --text-b4--line-height: 1.5;
 
-  --text-b5: 0.625rem;
+  --text-b5: 0.425rem;
   --text-b5--line-height: 1.5;
 
   /* =========================
