@@ -10,6 +10,15 @@ function Sidebar() {
                     </NavLink>
                 </li>
                 <li>
+                    <NavLink to="/react-components">
+                        React-Components
+                    </NavLink>
+                </li>
+
+                <li>
+                    <NavLink to={"/react-props"}>React-Props</NavLink>
+                </li>
+                <li>
                     <NavLink to="/users-dashboard">
                         Users Dashboard
                     </NavLink>

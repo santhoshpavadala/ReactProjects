@@ -73,17 +73,73 @@ a {
 }
 
 .section {
-  @apply text-left
+  @apply text-left;
 }
 
 .sub-section {
-  @apply border-2 border-primary-400 p-3 rounded-md;
+  @apply border-2 border-primary-400 p-3 mb-4 rounded-md;
 }
 
 .section-heading {
   @apply text-h4 text-text-primary font-medium;
 }
 
+.section-subheading {
+  @apply text-h6 text-text-primary font-medium;
+}
+
 .section-body {
   @apply text-b1 text-text-primary font-normal;
+}
+
+.section-content {
+@apply border-b-2 border-gray-400 p-3 mb-4
+}
+
+
+/* Global Buttons */
+
+.btn {
+  @apply inline-flex items-center justify-center;
+  @apply px-4 py-2;
+  /* @apply rounded-button; */
+  @apply font-medium;
+  @apply transition-all duration-200;
+  @apply cursor-pointer;
+}
+
+.btn-primary {
+  @apply bg-primary-400 text-white;
+  @apply hover:bg-primary-600;
+}
+
+.btn-secondary {
+  @apply bg-gray-600 text-white;
+  @apply hover:bg-gray-800;
+}
+
+.btn-success {
+  @apply bg-success-400 text-white;
+  @apply hover:bg-success-700;
+}
+
+.btn-danger {
+  @apply bg-danger-400 text-white;
+  @apply hover:bg-danger-700;
+}
+
+.btn-warning {
+  @apply bg-warning-400 text-white;
+  @apply hover:bg-warning-700;
+}
+
+.btn-outline {
+  @apply border border-primary-400;
+  @apply text-text-primary;
+  @apply bg-transparent;
+  @apply hover:bg-primary-600 hover:text-white;
+}
+
+.btn:disabled {
+  @apply opacity-50 cursor-not-allowed;
 }

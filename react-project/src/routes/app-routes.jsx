@@ -4,6 +4,8 @@ import HomeDashboard from "../pages/home-dashboard";
 import UsersDashboard from "../pages/users-dashboard";
 import PostsDashboard from "../pages/posts-dashboard";
 import TodosDashboard from "../pages/todos-dashboard";
+import ReactComponents from "../pages/react-components";
+import ReactProps from "../pages/react-props";
 
 function AppRoutes() {
     return(
@@ -11,27 +13,12 @@ function AppRoutes() {
       <Routes>
 
         <Route element={<MainLayout />}>
-
-          <Route
-            path="/"
-            element={<HomeDashboard />}
-          />
-
-          <Route
-            path="/users-dashboard"
-            element={<UsersDashboard />}
-          />
-
-          <Route
-            path="/posts-dashboard"
-            element={<PostsDashboard />}
-          />
-
-          <Route
-            path="/todos-dashboard"
-            element={<TodosDashboard />}
-          />
-
+          <Route path="/" element={<HomeDashboard />}/>
+          <Route path="/react-components" element={<ReactComponents />}/>
+          <Route path="/react-props" element={<ReactProps></ReactProps>}></Route>
+          <Route path="/users-dashboard" element={<UsersDashboard />}/>
+          <Route path="/posts-dashboard" element={<PostsDashboard />}/>
+          <Route path="/todos-dashboard" element={<TodosDashboard />}/>
         </Route>
 
       </Routes>
