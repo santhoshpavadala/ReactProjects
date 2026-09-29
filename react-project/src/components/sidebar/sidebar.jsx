@@ -21,6 +21,9 @@ function Sidebar() {
             <NavLink to={"/react-eventsandforms"}>React Events & Forms</NavLink>
           </li>
           <li>
+            <NavLink to={"/login-form"}>Login Form</NavLink>
+          </li>
+          <li>
             <NavLink to="/users-dashboard">Users Dashboard</NavLink>
           </li>
           <li>
