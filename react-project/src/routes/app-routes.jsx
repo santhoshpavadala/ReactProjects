@@ -6,6 +6,9 @@ import PostsDashboard from "../pages/posts-dashboard";
 import TodosDashboard from "../pages/todos-dashboard";
 import ReactComponents from "../pages/react-components";
 import ReactProps from "../pages/react-props";
+import ReactUseState from "../pages/react-usestate";
+import ReactEventsAndForms from "../pages/react-events&forms";
+import LoginForm from "../pages/login";
 
 function AppRoutes() {
     return(
@@ -15,7 +18,10 @@ function AppRoutes() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomeDashboard />}/>
           <Route path="/react-components" element={<ReactComponents />}/>
-          <Route path="/react-props" element={<ReactProps></ReactProps>}></Route>
+          <Route path="/react-props" element={<ReactProps />}/>
+          <Route path="/react-usestate" element={<ReactUseState />}/>
+          <Route path="/react-eventsandforms" element={<ReactEventsAndForms/>}/>
+          <Route path="/login-form" element={<LoginForm />} />
           <Route path="/users-dashboard" element={<UsersDashboard />}/>
           <Route path="/posts-dashboard" element={<PostsDashboard />}/>
           <Route path="/todos-dashboard" element={<TodosDashboard />}/>

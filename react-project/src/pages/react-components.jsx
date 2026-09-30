@@ -1,6 +1,16 @@
 import Button from "../components/button";
+import { useState } from "react";
+import { useRef } from "react";
 
 function ReactComponents() {
+const [email, setEmail] = useState("");
+
+const inputRef = useRef();
+
+  const handleSubmit = () => {
+    console.log(inputRef.current.value);
+  };
+
   return (
     <>
       <h2 className="page-title">Section 2 — React Components</h2>
@@ -252,6 +262,233 @@ function ReactComponents() {
                 </code>
               </pre>
             </div>
+
+            <div className="section-content">
+              <h4 className="section-heading">2.10 Controlled Components</h4>
+              <p>This is especially important for forms. A controlled component is a form element whose value is controlled by React state.</p>
+              <p>Example:</p>
+              <pre>
+                <code>
+                  {`
+                  import { useState } from "react";
+                  function Login() {
+                    const [email, setEmail] = useState("");
+                    return (
+                      <input
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    );
+                  }
+                  `}
+                </code>
+              </pre>
+
+
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="form-input"
+              />
+
+              <pre>
+                <code>
+                  {`
+                  FLOW: 
+                  User types
+                    ↓
+                  onChange
+                    ↓
+                  setEmail()
+                    ↓
+                  React state
+                    ↓
+                  value
+                    ↓
+                  Input
+
+                  React becomes the source of truth for the input value.
+                  `}
+                </code>
+              </pre>
+            </div>
+
+            <div className="section-content">
+              <h4 className="section-heading">2.11 Uncontrolled Components</h4>
+              <p>An uncontrolled component allows the DOM itself to maintain the form value, commonly accessed using a ref.</p>
+              
+              <input ref={inputRef} className="form-input"/>
+              <Button variant="primary" onClick={handleSubmit}>
+                Submit
+              </Button>
+
+              <h6 className="section-subheading">Q: Which should you use?</h6>
+              <p>There isn't a universal answer. <br />
+              Use controlled inputs when you need:</p>
+              <ul>
+                <li>Dynamic validation</li>
+                <li>Conditional UI</li>
+                <li>Immediate state synchronization</li>
+                <li>Complex forms</li>
+                <li>Input-dependent behavior</li>
+                <li></li>
+              </ul>
+              <p>Uncontrolled inputs can be useful when you don't need React state to track every change or when integrating with certain DOM-oriented code.</p>
+            </div>
+
+            <div className="section-content">
+              <h4 className="section-heading">2.12 Presentational vs Container Components</h4>
+              <h6 className="section-subheading">Presentational Component: Primarily focuses on displaying UI.</h6>
+              <pre>
+                <code>
+                  {`
+                  function UserCard({ user }) {
+                    return (
+                      <div>
+                        <h2>{user.name}</h2>
+                        <p>{user.role}</p>
+                      </div>
+                    );
+                  }
+                  `}
+                </code>
+              </pre>
+              <h6 className="section-subheading">Container Component</h6>
+              <p>Handles data/state/business logic and passes data to UI components.</p>
+              <pre>
+                <code>
+                  {`
+                  function UserContainer() {
+                    const [user, setUser] = useState(null);
+                    // API/state logic
+                    return <UserCard user={user} />;
+                  }
+                  `}
+                </code>
+              </pre>
+              <p><strong>The container/presentational pattern separates application logic and data handling from UI rendering. It can improve separation of concerns, although modern React often uses custom Hooks and composition instead of strictly enforcing this pattern.</strong></p>
+            </div>
+
+            <div className="section-content">
+              <h4 className="section-heading">2.13 Smart vs Dumb Components</h4>
+              <p>Older React terminology sometimes describes:</p>
+              <h6 className="section-subheading">Smart component: Handles</h6>
+              <ul>
+                <li>State</li>
+                <li>API</li>
+                <li>Business logic</li>
+                <li>Data</li>
+              </ul>
+              <h6 className="section-subheading">Dumb component</h6>
+              <p>Primarily displays:</p>
+              <ul>
+                <li>UI</li>
+                <li>Props</li>
+              </ul>
+              <p>This terminology is less emphasized in modern React, but you may encounter it in interviews or older codebases.</p>
+            </div>
+
+            <div className="section-content">
+              <h6 className="section-subheading">2.14 Component State vs Props</h6>
+              <pre>
+                <code>
+                  {`
+                  |---------------------------|-----------------------------------------|
+                  | Props                     | State                                   |
+                  |---------------------------|-----------------------------------------|
+                  | Passed into component     | Managed by component                    |
+                  | Read-only                 | Updated through state setters/reducer   |
+                  | Parent controls the value | Component/application logic controls it |
+                  | Used for communication    | Used for changing data                  |
+                  | External input            | Internal/reactive data                  |
+                  |---------------------------|-----------------------------------------|
+
+                  Example:
+                  <User name="Santhosh" />
+                  name → prop.
+
+                  const [count, setCount] = useState(0);
+                  count → state.
+
+                  `}
+                </code>
+              </pre>
+            </div>
+
+            <div className="section-content">
+              <h4 className="section-heading">2.15 Component Re-rendering</h4>
+
+              <pre>
+                <code>
+                  {`
+                  function Counter() {
+                    const [count, setCount] = useState(0);
+
+                    console.log("Counter rendered");
+
+                    return (
+                      <button onClick={() => setCount(count + 1)}>
+                        {count}
+                      </button>
+                    );
+                  }
+                    When:
+                    setCount(count + 1);
+
+                  `}
+                </code>
+              </pre>
+              <p>runs, React schedules an update and the component renders again.</p>
+              <p>A component rendering again does not necessarily mean the entire browser DOM is recreated.</p>
+              <p>React reconciles the new output and commits required changes.</p>
+            </div>
+            <div className="section-content">
+              <h4 className="section-heading">2.16 Can a Component Return Multiple Elements?</h4>
+              <p>Yes, using a Fragment.</p>
+              <pre>
+                <code>
+                  {`
+                  function User() {
+                    return (
+                      <>
+                        <h2>Santhosh</h2>
+                        <p>Frontend Developer</p>
+                      </>
+                    );
+                  }
+
+                  Without a wrapper: Plain Text
+                  <h2>
+                  <p>
+
+                  No unnecessary <div> is inserted.
+                  `}
+                </code>
+              </pre>
+            </div>
+            
+            <div className="section-content">
+              <h4 className="section-heading">2.17 Can a Component Return null?</h4>
+              <p>Yes</p>
+
+              <pre>
+                <code>
+                  {`
+                  function AdminPanel({ isAdmin }) {
+                    if (!isAdmin) {
+                      return null;
+                    }
+
+                    return <div>Admin Panel</div>;
+                  }
+                  `}
+                </code>
+              </pre>
+              <p>This means the component renders nothing. <br />
+              Useful for conditional UI.</p>
+            </div>
+
           </div>
         </div>
       </div>

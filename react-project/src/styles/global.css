@@ -8,7 +8,7 @@
 
 body {
   background-color: var(--bg-color);
-  color: var(--white);
+  color: var(--black);
   font-family: var(--font-family);
 }
 
@@ -69,7 +69,7 @@ a {
 }
 
 .page-title {
-  @apply text-h2 text-text-primary font-inter font-bold mb-5;
+  @apply text-h2 text-text-primary font-inter font-bold mb-5 text-center;
 }
 
 .section {
@@ -142,4 +142,172 @@ a {
 
 .btn:disabled {
   @apply opacity-50 cursor-not-allowed;
+}
+
+/* Global Inputs */
+.form-input {
+  @apply w-full;
+  @apply px-4 py-2.5;
+  @apply bg-input-bg;
+  @apply text-input-text;
+  @apply border border-input-border;
+  @apply rounded-input;
+  @apply outline-none;
+  @apply transition-all duration-200;
+
+  /* Focus */
+  @apply focus:border-input-border-focus;
+  @apply focus:ring-2 focus:ring-primary-100;
+
+  /* Placeholder */
+  @apply placeholder:text-input-placeholder;
+
+  /* Disabled */
+  @apply disabled:bg-gray-100;
+  @apply disabled:cursor-not-allowed;
+  @apply disabled:opacity-60;
+}
+
+/* TABLE GLOBAL CSS */
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table {
+  @apply w-full;
+  @apply border-collapse;
+  @apply bg-surface;
+  @apply text-text-primary;
+  @apply text-b2;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.table thead tr th {
+  @apply bg-primary-600;
+}
+
+.table th {
+  @apply px-4 py-3;
+  @apply text-left;
+  @apply text-text-white;
+  @apply text-b2;
+  @apply font-semibold;
+  @apply whitespace-nowrap;
+
+}
+
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+.table tbody {
+  @apply bg-surface;
+}
+
+.table td {
+  @apply px-4 py-3;
+  @apply text-text-primary;
+  @apply text-b2;
+  @apply border-b border-gray-200;
+  @apply align-middle;
+}
+
+
+/* =========================================================
+   TABLE ROW
+========================================================= */
+
+.table tbody tr {
+  @apply transition-colors duration-200;
+}
+
+.table tbody tr:hover {
+  @apply bg-primary-50;
+}
+
+
+/* =========================================================
+   LAST ROW
+========================================================= */
+
+.table tbody tr:last-child td {
+  @apply border-b-0;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.table-status {
+  @apply inline-flex items-center;
+  @apply px-2 py-1;
+  @apply rounded-full;
+  @apply text-b3;
+  @apply font-medium;
+}
+
+.table-status-active {
+  @apply bg-success-100;
+  @apply text-success-700;
+}
+
+.table-status-inactive {
+  @apply bg-danger-100;
+  @apply text-danger-700;
+}
+
+.table-status-warning {
+  @apply bg-warning-100;
+  @apply text-warning-700;
+}
+
+
+/* =========================================================
+   TABLE ACTIONS
+========================================================= */
+
+.table-actions {
+  @apply flex items-center;
+  @apply gap-2;
+}
+
+
+/* =========================================================
+   TABLE CONTAINER
+========================================================= */
+
+.table-container {
+  @apply w-full;
+  @apply overflow-x-auto;
+  @apply bg-surface;
+  @apply rounded-lg;
+  @apply shadow-sm;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.table-empty {
+  @apply px-4 py-8;
+  @apply text-center;
+  @apply text-text-muted;
+  @apply text-b2;
+}
+
+/* Global List styles */
+
+ol {
+  @apply list-decimal pl-6;
+}
+
+ul {
+  @apply list-disc pl-6;
 }
